@@ -1,6 +1,6 @@
 # Miscellaneous Repository
 
-This repository contains various scripts, including a Habit Tracker using Pixela.
+This repository contains various scripts, including a Habit Tracker using Pixela
 
 ## Habit Tracker
 
@@ -78,22 +78,65 @@ How many Km did you run today? 5
 
 ## Workout Tracker
 
+This script allows users to track their workouts by logging exercise data into a Google Sheet using the Sheety API. It utilizes the Nutritionix API to process natural language input and extract workout details such as exercise name, duration, and calories burned.
+
 ## Features
+- **Automatic Exercise Recognition**: Uses the Nutritionix API to interpret user input.
+- **Google Sheet Logging**: Saves exercise details to a Google Sheet via Sheety API.
+- **Timestamps**: Automatically records the date and time of workouts.
 
 ## Prerequisites
+- Python 3.x installed
+- `requests` library installed (`pip install requests`)
+- Accounts and credentials for:
+  - [Nutritionix API](https://www.nutritionix.com/business/api)
+  - [Sheety API](https://sheety.co/)
 
 ## Setup
+1. Clone this repository or download the script.
+2. Install required dependencies:
+   ```sh
+   pip install requests
+   ```
+3. Set up your API credentials by replacing the placeholder values in the script:
+   ```python
+   APP_ID = 'your_nutritionix_app_id'
+   API_KEY = 'your_nutritionix_api_key'
+   SHEETY_BEARER = 'your_sheety_bearer_token'
+   SHEETY_ENDPOINT = 'your_sheety_api_endpoint'
+   ```
+4. Provide personal details for accurate tracking:
+   ```python
+   GENDER = 'your_gender'
+   WEIGHT_KG = 'your_weight'
+   HEIGHT_CM = 'your_height'
+   AGE = 'your_age'
+   ```
 
 ## Usage
-
-## Configuration
+1. Run the script:
+   ```sh
+   python workout_tracker.py
+   ```
+2. Enter your workout details when prompted:
+   ```
+   Tell me which exercises you did: ran 5km and did 30 push-ups
+   ```
+3. The script will process the input and log it into your Google Sheet.
 
 ## Example Output
+```
+Tell me which exercises you did: ran 5km
+{"message":"Success.","isSuccess":true}
+```
 
 ## Notes
+- Ensure that your Sheety project is configured to accept POST requests.
+- You can modify the script to store additional workout details.
 
 ## Resources
+- [Nutritionix API Documentation](https://www.nutritionix.com/business/api)
+- [Sheety API Documentation](https://sheety.co/)
 
 ## License
 This project is licensed under the MIT License.
-
